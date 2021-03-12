@@ -23,8 +23,9 @@ db.team.drop()
 @app.route("/")
 def index():
 
-    return render_template("index.html")
-
+    teams = list(db.team.find())
+    print (teams)
+    return render_template("index.html", team="teams")
 
 # Bonus add a new route
 @app.route("/bonus")

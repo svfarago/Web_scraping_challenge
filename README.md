@@ -1,8 +1,8 @@
 # Web Scraping Challenge
-* This project uses Beautiful Soup, Pymongo, Splinter, HTML, CSS, Bootstrap.
+* This project uses Beautiful Soup, Pymongo, Splinter, HTML, CSS, Bootstrap, Chromedriver.
 
 ## ReadMe File
-* Updated: March 9, 2021 | Created: March 2, 2021
+* Updated: March 11, 2021 | Created: March 2, 2021
 * Copyright: open source
 
 ### License ===========================
@@ -76,6 +76,7 @@ The above module is dependent on the following additional packages (install from
 * Resources used to build and troubleshoot this code are listed below, in addition to help and code peer review from students, instructor, and TA's.
 
 * Web URLs:
+https://www.w3.org/TR/webdriver2/
 https://space-facts.com/mars/
 https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars
 https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars
@@ -84,7 +85,7 @@ https://beautifytools.com/html-beautifier.php
 
 
 
-* URLs last used: March 9, 2021
+* URLs last used: March 11, 2021
 
 
 ###  Contact Information ===============
@@ -92,5 +93,5 @@ Colorado   United States
 
 
 ### Random Notes ===============
-This project uses Beautiful Soup, Pymongo, Splinter, HTML, CSS, Bootstrap.
+This project uses Beautiful Soup, Pymongo, Splinter, HTML, CSS, Bootstrap, Chromedriver.
 Time to complete: approximately 25 hours
