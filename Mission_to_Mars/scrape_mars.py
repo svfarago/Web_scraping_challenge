@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 # Dependencies
@@ -17,7 +17,7 @@ executable_path = {"executable_path": "chromedriver.exe"}
 browser = Browser("chrome", **executable_path, headless=False)
 
 
-# In[2]:
+# In[ ]:
 
 
 # Initialize PyMongo to work with MongoDBs
@@ -25,7 +25,7 @@ conn = "mongodb://localhost:27017"
 client = pymongo.MongoClient(conn)
 
 
-# In[3]:
+# In[ ]:
 
 
 # Define database and collection
@@ -37,7 +37,7 @@ collection = db.items
 # * Scrape the [NASA Mars News Site](https://mars.nasa.gov/news/) and collect the latest News Title and Paragraph Text. 
 # * Assign the text to variables that you can reference later.
 
-# In[17]:
+# In[ ]:
 
 
 # URL of page to scrape
@@ -47,7 +47,7 @@ browser.visit(url)
 html = browser.html
 
 
-# In[27]:
+# In[ ]:
 
 
 # Create BeautifulSoup object; parse with html.parser for html structure
@@ -55,7 +55,7 @@ soup = BeautifulSoup(html, "html.parser")
 #print(soup.prettify())
 
 
-# In[28]:
+# In[ ]:
 
 
 # Search for the div where the title is located
@@ -64,7 +64,7 @@ latest_news_title = results[1].text
 print(f"Title: {latest_news_title}")
 
 
-# In[29]:
+# In[ ]:
 
 
 # Scrape html container that has info; using .text to convert html detail body to text
@@ -72,7 +72,7 @@ latest_news_detail = soup.find("div", class_="article_teaser_body").text
 latest_news_detail
 
 
-# In[30]:
+# In[ ]:
 
 
 # Scrape news title and content
@@ -84,7 +84,7 @@ print(f"Paragraph: {latest_news_detail}")
 # In[ ]:
 
 
-browser.quit()
+#browser.quit()
 
 
 # ## JPL Mars Space Images - Featured Image
@@ -100,7 +100,7 @@ browser.quit()
 # Reminder to run first row of code if browser.quit() is run above
 
 
-# In[34]:
+# In[ ]:
 
 
 # Open browser with JPL Featured Space Image url through splinter module
@@ -108,15 +108,15 @@ url_spaceimage = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
 browser.visit(url_spaceimage)
 
 
-# In[35]:
+# In[ ]:
 
 
 # HTML Object
 html = browser.html
-soup = BeautifulSoup(img_html, "html.parser")
+soup = BeautifulSoup(html, "html.parser")
 
 
-# In[36]:
+# In[ ]:
 
 
 # Featured image - pull first chunk of html code
@@ -124,7 +124,7 @@ results = soup.find("div", class_ = "sm:object-cover object-cover")
 print(results)
 
 
-# In[37]:
+# In[ ]:
 
 
 # Featured image - refine first chunk of html code from above
@@ -132,7 +132,7 @@ results2 = results.find("img")
 print(results2)
 
 
-# In[38]:
+# In[ ]:
 
 
 # Featured image - refine second chunk of html code from above pull out URL
@@ -142,7 +142,7 @@ for results in image:
     print (results["src"])
 
 
-# In[39]:
+# In[ ]:
 
 
 # Display url of the full image
@@ -154,7 +154,7 @@ print (results["src"])
 # In[ ]:
 
 
-browser.quit()
+#browser.quit()
 
 
 # ## Mars Facts
@@ -167,7 +167,7 @@ browser.quit()
 # Reminder to run first row of code if browser.quit() is run above
 
 
-# In[40]:
+# In[ ]:
 
 
 # Open browser using Chromedriver through splinter module
@@ -175,7 +175,7 @@ executable_path = {"executable_path": "chromedriver.exe"}
 browser = Browser("chrome", **executable_path, headless=False)
 
 
-# In[41]:
+# In[ ]:
 
 
 url="https://space-facts.com/mars/"
@@ -183,7 +183,7 @@ browser.visit(url)
 html = browser.html
 
 
-# In[42]:
+# In[ ]:
 
 
 # Pull all Mars facts
@@ -191,7 +191,7 @@ facts=pd.read_html(url)
 #facts
 
 
-# In[43]:
+# In[ ]:
 
 
 # Put Mars facts into an indexed dataframe
@@ -199,14 +199,14 @@ mars_facts_df=facts[0]
 mars_facts_df
 
 
-# In[47]:
+# In[ ]:
 
 
 # Save dataframe to html
 mars_facts_df.to_html()
 
 
-# In[48]:
+# In[ ]:
 
 
 # Save html to table
@@ -222,7 +222,7 @@ mars_facts_df.to_html("mars_facts_data.html")
 # In[ ]:
 
 
-browser.quit()
+#browser.quit()
 
 
 # ## Mars Hemispheres
@@ -237,7 +237,7 @@ browser.quit()
 # Reminder to run first row of code if browser.quit() is run above
 
 
-# In[55]:
+# In[ ]:
 
 
 # Open browser using Chromedriver through splinter module
@@ -245,7 +245,7 @@ executable_path = {"executable_path": "chromedriver.exe"}
 browser = Browser("chrome", **executable_path, headless=False)
 
 
-# In[62]:
+# In[ ]:
 
 
 url="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
@@ -253,7 +253,7 @@ browser.visit(url)
 html = browser.html
 
 
-# In[63]:
+# In[ ]:
 
 
 # Create BeautifulSoup object; parse with html.parser for html structure
@@ -261,7 +261,7 @@ soup = BeautifulSoup(html, "html.parser")
 print(soup.prettify())
 
 
-# In[64]:
+# In[ ]:
 
 
 # Scrape all 4 items from page containing Mars hemispheres info. This creates 4 image URLs.
@@ -311,5 +311,5 @@ for item in result:
 # In[ ]:
 
 
-browser.quit()
+#browser.quit()
 
