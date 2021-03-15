@@ -33,6 +33,8 @@ The above module is dependent on the following additional packages (install from
 - pip install tqdm
 - pip install BeautifulSoup4
 - pip install appdirs
+- pip install flask-pymongo
+
 
 * Similar applications may also work.
 
@@ -85,9 +87,9 @@ https://beautifytools.com/html-beautifier.php
 https://www.geeksforgeeks.org/extracting-an-attribute-value-with-beautifulsoup-in-python/
 https://www.knowledgehut.com/blog/programming/python-split-function
 https://stackoverflow.com/questions/43982002/extract-src-attribute-from-img-tag-using-beautifulsoup/47166671 (For Texts with img tag)
+https://pypi.org/project/Flask-PyMongo/
 
-
-* URLs last used: March 11, 2021
+* URLs last used: March 14, 2021
 
 
 ###  Contact Information ===============
