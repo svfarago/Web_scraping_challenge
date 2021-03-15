@@ -2,7 +2,7 @@
 * This project uses Beautiful Soup, Pymongo, Splinter, HTML, CSS, Bootstrap, Chromedriver.
 
 ## ReadMe File
-* Updated: March 11, 2021 | Created: March 2, 2021
+* Updated: March 14 2021 | Created: March 2, 2021
 * Copyright: open source
 
 ### License ===========================
@@ -82,7 +82,9 @@ https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars
 https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars
 https://stackoverflow.com/questions/49788257/what-is-default-location-of-chromedriver-and-for-installing-chrome-on-windows
 https://beautifytools.com/html-beautifier.php
-
+https://www.geeksforgeeks.org/extracting-an-attribute-value-with-beautifulsoup-in-python/
+https://www.knowledgehut.com/blog/programming/python-split-function
+https://stackoverflow.com/questions/43982002/extract-src-attribute-from-img-tag-using-beautifulsoup/47166671 (For Texts with img tag)
 
 
 * URLs last used: March 11, 2021
