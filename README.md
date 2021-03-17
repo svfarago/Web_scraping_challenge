@@ -2,7 +2,7 @@
 * This project uses Beautiful Soup, Pymongo, Splinter, HTML, CSS, Bootstrap, Chromedriver.
 
 ## ReadMe File
-* Updated: March 14 2021 | Created: March 2, 2021
+* Updated: March 16 2021 | Created: March 2, 2021
 * Copyright: open source
 
 ### License ===========================
@@ -89,7 +89,7 @@ https://www.knowledgehut.com/blog/programming/python-split-function
 https://stackoverflow.com/questions/43982002/extract-src-attribute-from-img-tag-using-beautifulsoup/47166671 (For Texts with img tag)
 https://pypi.org/project/Flask-PyMongo/
 
-* URLs last used: March 14, 2021
+* URLs last used: March 16, 2021
 
 
 ###  Contact Information ===============

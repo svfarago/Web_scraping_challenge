@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 # Dependencies
@@ -12,12 +12,16 @@ import pandas as pd
 from splinter import Browser
 from selenium import webdriver
 
+
+# In[2]:
+
+
 # Set up Chrome Web driver with Splinter (above)
 executable_path = {"executable_path": "chromedriver.exe"}
 browser = Browser("chrome", **executable_path, headless=False)
 
 
-# In[ ]:
+# In[3]:
 
 
 # Initialize PyMongo to work with MongoDBs
@@ -25,7 +29,7 @@ conn = "mongodb://localhost:27017"
 client = pymongo.MongoClient(conn)
 
 
-# In[ ]:
+# In[4]:
 
 
 # Define database and collection
@@ -37,7 +41,7 @@ collection = db.items
 # * Scrape the [NASA Mars News Site](https://mars.nasa.gov/news/) and collect the latest News Title and Paragraph Text. 
 # * Assign the text to variables that you can reference later.
 
-# In[ ]:
+# In[5]:
 
 
 # URL of page to scrape
@@ -47,7 +51,7 @@ browser.visit(url)
 html = browser.html
 
 
-# In[ ]:
+# In[6]:
 
 
 # Create BeautifulSoup object; parse with html.parser for html structure
@@ -55,7 +59,7 @@ soup = BeautifulSoup(html, "html.parser")
 #print(soup.prettify())
 
 
-# In[ ]:
+# In[7]:
 
 
 # Search for the div where the title is located
@@ -64,7 +68,7 @@ latest_news_title = results[1].text
 print(f"Title: {latest_news_title}")
 
 
-# In[ ]:
+# In[8]:
 
 
 # Scrape html container that has info; using .text to convert html detail body to text
@@ -72,7 +76,7 @@ latest_news_detail = soup.find("div", class_="article_teaser_body").text
 latest_news_detail
 
 
-# In[ ]:
+# In[9]:
 
 
 # Scrape news title and content
@@ -84,7 +88,8 @@ print(f"Paragraph: {latest_news_detail}")
 # In[ ]:
 
 
-#browser.quit()
+# Note: browser.quit() will hang .py export and won't enable it to run correctly. So rem the line out on export.
+# browser.quit()
 
 
 # ## JPL Mars Space Images - Featured Image
@@ -100,7 +105,7 @@ print(f"Paragraph: {latest_news_detail}")
 # Reminder to run first row of code if browser.quit() is run above
 
 
-# In[ ]:
+# In[17]:
 
 
 # Open browser with JPL Featured Space Image url through splinter module
@@ -108,15 +113,16 @@ url_spaceimage = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
 browser.visit(url_spaceimage)
 
 
-# In[ ]:
+# In[18]:
 
 
 # HTML Object
 html = browser.html
 soup = BeautifulSoup(html, "html.parser")
+#soup = BeautifulSoup(img_html, "html.parser")
 
 
-# In[ ]:
+# In[22]:
 
 
 # Featured image - pull first chunk of html code
@@ -124,7 +130,7 @@ results = soup.find("div", class_ = "sm:object-cover object-cover")
 print(results)
 
 
-# In[ ]:
+# In[23]:
 
 
 # Featured image - refine first chunk of html code from above
@@ -132,7 +138,7 @@ results2 = results.find("img")
 print(results2)
 
 
-# In[ ]:
+# In[24]:
 
 
 # Featured image - refine second chunk of html code from above pull out URL
@@ -142,11 +148,11 @@ for results in image:
     print (results["src"])
 
 
-# In[ ]:
+# In[25]:
 
 
 # Display url of the full image
-featured_image_url = f"Featured Image:{results}"
+featured_image_url = f"Featured Image:{img_results}"
 print("--JPL Featured Space Image----")
 print (results["src"])
 
@@ -154,7 +160,8 @@ print (results["src"])
 # In[ ]:
 
 
-#browser.quit()
+# Note: browser.quit() will hang .py export and won't enable it to run correctly. So rem the line out on export.
+# browser.quit()
 
 
 # ## Mars Facts
@@ -171,11 +178,11 @@ print (results["src"])
 
 
 # Open browser using Chromedriver through splinter module
-executable_path = {"executable_path": "chromedriver.exe"}
-browser = Browser("chrome", **executable_path, headless=False)
+#executable_path = {"executable_path": "chromedriver.exe"}
+#browser = Browser("chrome", **executable_path, headless=False)
 
 
-# In[ ]:
+# In[26]:
 
 
 url="https://space-facts.com/mars/"
@@ -183,7 +190,7 @@ browser.visit(url)
 html = browser.html
 
 
-# In[ ]:
+# In[27]:
 
 
 # Pull all Mars facts
@@ -191,7 +198,7 @@ facts=pd.read_html(url)
 #facts
 
 
-# In[ ]:
+# In[28]:
 
 
 # Put Mars facts into an indexed dataframe
@@ -199,14 +206,14 @@ mars_facts_df=facts[0]
 mars_facts_df
 
 
-# In[ ]:
+# In[29]:
 
 
 # Save dataframe to html
 mars_facts_df.to_html()
 
 
-# In[ ]:
+# In[30]:
 
 
 # Save html to table
@@ -222,7 +229,8 @@ mars_facts_df.to_html("mars_facts_data.html")
 # In[ ]:
 
 
-#browser.quit()
+# Note: browser.quit() will hang .py export and won't enable it to run correctly. So rem the line out on export.
+# browser.quit()
 
 
 # ## Mars Hemispheres
@@ -241,11 +249,11 @@ mars_facts_df.to_html("mars_facts_data.html")
 
 
 # Open browser using Chromedriver through splinter module
-executable_path = {"executable_path": "chromedriver.exe"}
-browser = Browser("chrome", **executable_path, headless=False)
+#executable_path = {"executable_path": "chromedriver.exe"}
+#browser = Browser("chrome", **executable_path, headless=False)
 
 
-# In[ ]:
+# In[31]:
 
 
 url="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
@@ -253,7 +261,7 @@ browser.visit(url)
 html = browser.html
 
 
-# In[ ]:
+# In[32]:
 
 
 # Create BeautifulSoup object; parse with html.parser for html structure
@@ -261,7 +269,7 @@ soup = BeautifulSoup(html, "html.parser")
 print(soup.prettify())
 
 
-# In[ ]:
+# In[33]:
 
 
 # Scrape all 4 items from page containing Mars hemispheres info. This creates 4 image URLs.
@@ -311,5 +319,6 @@ for item in result:
 # In[ ]:
 
 
-#browser.quit()
+# Note: browser.quit() will hang .py export and won't enable it to run correctly. So rem the line out on export.
+# browser.quit()
 

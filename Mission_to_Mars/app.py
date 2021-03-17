@@ -1,24 +1,14 @@
-# import necessary libraries
-from flask import Flask, render_template, redirect
+  
+from flask import Flask, render_template, jsonify, redirect
 from flask_pymongo import PyMongo
+import scrape_mars 
 
-
-# Import the code used to scrape the web pages
-import scrape_mars
-
-# create instance of Flask app
+# Create an instance of Flask app
 app = Flask(__name__)
 
 # Use flask_pymongo to set up mongo connection
-app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_app"
-mongo = PyMongo(app)
-
-
-# Connect to database; it is created if not already available
-#mars_data = mongo.db.mars_data
-
-# Drops collection if available to remove duplicates
-#db.team.drop()
+# Potato - change to mars_app??
+mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_db")
 
 
 # Route to render index.html template using data from Mongo
@@ -30,7 +20,7 @@ def index():
 
 @app.route('/scrape')
 def scrape():
-	mars_info = mongo.db.mars_info
+	mars_info = mongo.db.mars_db
 	mars_data = scrape_mars.scrape_info()
 	mars_info.update({}, mars_data, upsert=True)
 	
@@ -38,23 +28,3 @@ def scrape():
 
 if __name__ == "__main__":
 	app.run(debug=True)
-
-
-
-# create route that renders index.html template
-#@app.route("/")
-#def index():
-
-    #teams = list(db.team.find())
-    #print (teams)
-    #return render_template("index.html", team="teams")
-
-# Bonus add a new route
-#@app.route("/bonus")
-#def bonus():
-
-    #return render_template("bonus.html")
-
-
-#if __name__ == "__main__":
-   # app.run(debug=True)
