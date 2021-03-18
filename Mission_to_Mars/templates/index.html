@@ -10,102 +10,67 @@
   
 
 </head>
-<body class="body-background">
-    <!-- Defining navbar with inverse color and components -->
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">Mission to Mars</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-          </li>
-          <li><a href="comparison.html">Comparison</a></li>
-          <li><a href="data.html">Data</a></li>
-        </ul>
-      </div>
-    </nav>
-​
-​​
+<body>
 <div class="container">
   <!-- Jumbotron -->
   <div class="jumbotron text-center">
       <h1 class="display-3"><b>Mission to Mars</b></h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Headline</a></p>
+      <p><a class="btn btn-primary btn-lg" href="../scrape" role="button">Click to Scrape Top Mars Headline</a></p>
   </div>
-  <!-- NASA Mars News -->
-  <div class="container">
-      <div class="row" id="mars-news">
-          <div class="media">
+
+  <div class="row">
+  <div class="col-md-12">
+  <!-- Latest Mars News -->
               <div class="media-body">
-                  <h4>Latest Mars News</h4>
-                  <h5>{{mars.latest_news_title}}</h5>
+                  <h3>Latest Mars News</h3>
+                  <h4>{{mars.latest_news_title}}</h4>
                   <p>{{mars.latest_news_detail}}</p>
               </div>
           </div>
+        </br>
+ <div class="row">
+ <div class="col-md-10 border">
+  <!-- JPL Mars Space Images - Featured Image -->
+        <h3>Featured Mars Image</h3>
+        </br>
+         <img src="{{mars.feature_image_url}}" alt="Featured Mars Image">
+        </div>
+      </br>
+
+ <div class="col-md-10 border">
+            <h3>Mars Facts</h3>
+                {{mars.mars_html_table}}
+
+           </div>
       </div>
-  </div>   
+  </div>
 
-
-
-
-​<!-- Start container -->
-<div class="container-fluid">
-    <div class="col-lg-6 col-sm-8">
-      <div class="description">
-        <h1 class="description-header">Mars Data</h1>
-        <hr>
-        <p>The purpose of this project is to build a web application that scrapes various websites for data related to the Mission to mars and displays the information on this page.</p>
-
+  <hr>
+    <div class="row">
+      <div class="col-md-8 offset-4">
+        <h3>Mars Hemispheres</h3>  
       </div>
     </div>
+    </br>
+    <div class="row">       
+            {% for hemisphere in mars.image_urls %} 
+              <div class="col-6 border">
+              </br>
+                    <div>
+                      <img width="400 px" height="400 px" src="{{ img_urls }}">
+                    </div>
 
+                    <div>
+                      <h3> {{ image_urls}} </h3>  
+                    </div>
+            
+              </div>
+            {% endfor %}
+    </div>
+  </div>
+<hr>
+<hr>
 
-<!---Container-->
-    <table border="1" class="dataframe">
-        <tbody>
-            <tr>
-                <td><strong>Mars Info</strong></td>
-                <td><strong>Details</strong></td>
-              </tr>
-          <tr>
-            <td>Equatorial Diameter:</td>
-            <td>6,792 km</td>
-          </tr>
-          <tr>
-             <td>Polar Diameter:</td>
-            <td>6,752 km</td>
-          </tr>
-          <tr>
-           <td>Mass:</td>
-            <td>6.39 × 10^23 kg (0.11 Earths)</td>
-          </tr>
-          <tr>
-            <td>Moons:</td>
-            <td>2 (Phobos &amp; Deimos)</td>
-          </tr>
-          <tr>
-            <td>Orbit Distance:</td>
-            <td>227,943,824 km (1.38 AU)</td>
-          </tr>
-          <tr>
-             <td>Orbit Period:</td>
-            <td>687 days (1.9 years)</td>
-          </tr>
-          <tr>
-            <td>Surface Temperature:</td>
-            <td>-87 to -5 °C</td>
-          </tr>
-          <tr>
-            <td>First Record:</td>
-            <td>2nd millennium BC</td>
-          </tr>
-          <tr>
-            <td>Recorded By:</td>
-            <td>Egyptian astronomers</td>
-          </tr>
-        </tbody>
-      </table>
       
 <!---Script files--->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
