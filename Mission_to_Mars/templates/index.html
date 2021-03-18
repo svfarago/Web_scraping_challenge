@@ -27,6 +27,28 @@
     </nav>
 ​
 ​​
+<div class="container">
+  <!-- Jumbotron -->
+  <div class="jumbotron text-center">
+      <h1 class="display-3"><b>Mission to Mars</b></h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Headline</a></p>
+  </div>
+  <!-- NASA Mars News -->
+  <div class="container">
+      <div class="row" id="mars-news">
+          <div class="media">
+              <div class="media-body">
+                  <h4>Latest Mars News</h4>
+                  <h5>{{mars.latest_news_title}}</h5>
+                  <p>{{mars.latest_news_detail}}</p>
+              </div>
+          </div>
+      </div>
+  </div>   
+
+
+
+
 ​<!-- Start container -->
 <div class="container-fluid">
     <div class="col-lg-6 col-sm-8">
