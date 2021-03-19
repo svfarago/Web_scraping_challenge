@@ -28,7 +28,7 @@ def scrape_all():
     url = "https://mars.nasa.gov/news/"
     browser.visit(url)
     html = browser.html
-    time.sleep(1)
+    time.sleep(3)
     soup = BeautifulSoup(html, "html.parser") 
 # Scrape the container that has info
     results_head = soup.find_all("div", class_="content_title")
@@ -45,6 +45,7 @@ def scrape_all():
     browser.visit(url_spaceimage)
     time.sleep(1)
     browser.find_by_css("img.BaseImage").click()    
+    time.sleep(3)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
     feature_image_url = soup.find("a", class_="BaseButton")["href"]
@@ -150,6 +151,8 @@ def scrape_all():
     browser.quit()
     # Return results
     return mars_data
+
+    # Potato - do I need the code below?
 if __name__ == "__main__":
         scrape_all()
 

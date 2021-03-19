@@ -6,7 +6,6 @@ import scrape_mars
 app = Flask(__name__)
 
 # Use PyMongo to establish Mongo connection to database, mars_app
-#mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
 app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_app"
 mongo = PyMongo(app)
 
@@ -27,6 +26,7 @@ def scrape():
     mars = mongo.db.mars
     # Run the scrape function to fetch data in the form of dictionary
     mars_data = scrape_mars.scrape_all()
+    print(mars_data)
 
     # Update the Mongo database collection (mars) using update and upsert=True
     mars.update({}, mars_data, upsert=True)

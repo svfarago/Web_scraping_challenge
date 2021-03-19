@@ -6,7 +6,6 @@
  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
   
 
 </head>
@@ -18,7 +17,6 @@
       <p><a class="btn btn-primary btn-lg" href="../scrape" role="button">Click to Scrape Top Mars Headline</a></p>
   </div>
 
-  <div class="row">
   <div class="col-md-12">
   <!-- Latest Mars News -->
               <div class="media-body">
@@ -26,7 +24,7 @@
                   <h4>{{mars.latest_news_title}}</h4>
                   <p>{{mars.latest_news_detail}}</p>
               </div>
-          </div>
+
         </br>
  <div class="row">
  <div class="col-md-10 border">
@@ -34,34 +32,33 @@
         <h3>Featured Mars Image</h3>
         </br>
          <img src="{{mars.feature_image_url}}" alt="Featured Mars Image">
+         {{mars.feature_image_url}}
         </div>
       </br>
 
  <div class="col-md-10 border">
             <h3>Mars Facts</h3>
-                {{mars.mars_html_table}}
+                {{mars.mars_html_table | safe}}
 
            </div>
       </div>
   </div>
-
   <hr>
+ 
     <div class="row">
       <div class="col-md-8 offset-4">
-        <h3>Mars Hemispheres</h3>  
+        <h3>Mars Hemispheres</h3> 
+        <P>Images of each Mars hemisphere.</P>
       </div>
     </div>
-    </br>
     <div class="row">       
-            {% for hemisphere in mars.image_urls %} 
+            {% for object in mars.image_urls %} 
               <div class="col-6 border">
               </br>
-                    <div>
-                      <img width="400 px" height="400 px" src="{{ img_urls }}">
-                    </div>
 
                     <div>
-                      <h3> {{ image_urls}} </h3>  
+                      <img width="300px" height="300px" src="{{ object['image_url'] }}">
+                      <h5><i>{{object['title']}}</i></h5>
                     </div>
             
               </div>
