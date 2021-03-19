@@ -2,7 +2,7 @@
 * This project uses Beautiful Soup, Pymongo, Splinter, HTML, CSS, Bootstrap, Chromedriver.
 
 ## ReadMe File
-* Updated: March 16 2021 | Created: March 2, 2021
+* Updated: March 18 2021 | Created: March 2, 2021
 * Copyright: open source
 
 ### License ===========================
@@ -14,9 +14,10 @@
 
 
 ### Installation Instructions ==========
-* Applications used for web scraping:
+* Applications used:
 - Beautiful Soup
 - Pymongo
+- Flask
 - Splinter
 - Google Chrome browser
 - Visual Studio Code
@@ -42,15 +43,27 @@ The above module is dependent on the following additional packages (install from
 ### List of Files ====================
 * \Web_scraping_challenge
 *    \Mission_to_Mars
+        app.py
+        chromedriver.exe
+        mars_facts_data.html
+        scrape.py
         mission_to_mars.ipynb
-                \.ipynb_checkpoints
+        \.ipynb_checkpoints
+                 mission_to_mars-checkpoint.ipynb
+        \ __pycache__
+                scrape_mars.cpython-38
+        screen_database and website
+                Mission to Mars_pdf of website.pdf
+                MongoDB - mars_app.png
+        templates
+                index.html
 *   README.md
 
 
 
 ### Operating Instructions =============
-* TBD
-
+* index.html page is designed to run locally on localhost:5000. This page will activate scripts to run to scrape websites.
+* See also jupyter notebook for detailed notes on scripts and outputs.
 
 ### Data Set(s) =======================
 * See also "List of Files" section above for files associated with this project.
@@ -89,7 +102,7 @@ https://www.knowledgehut.com/blog/programming/python-split-function
 https://stackoverflow.com/questions/43982002/extract-src-attribute-from-img-tag-using-beautifulsoup/47166671 (For Texts with img tag)
 https://pypi.org/project/Flask-PyMongo/
 
-* URLs last used: March 16, 2021
+* URLs last used: March 18, 2021
 
 
 ###  Contact Information ===============

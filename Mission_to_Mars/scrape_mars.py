@@ -34,7 +34,6 @@ def scrape_all():
     results_head = soup.find_all("div", class_="content_title")
     results_title = results_head[1].text
     latest_news_title = results_title
-
     results_body = soup.find("div", class_="article_teaser_body")
     results_detail= results_body.text
     latest_news_detail = results_detail
@@ -53,41 +52,6 @@ def scrape_all():
 
 
 ## ---------Mars Facts
-# POTATO - this needs fixing
-    #url="https://space-facts.com/mars/"
-    #try:
-        #mars_facts = pd.read_html(url)[0]
-        #mars_facts.columns = ["Description","Data"]
-        #mars_facts = mars_facts.set_index("Description", inplace=True)
-    #except BaseException:
-        #mars_facts = "Didn't work"
-
-## ---------Mars Facts - V2
- #   url="https://space-facts.com/mars/"
- #   facts=pd.read_html(url)
- #   mars_facts=facts[0]
-    # Rename columns
- #   mars_facts.columns = ['Description','Data']
-    # Reset Index to description
-#    mars_facts = mars_facts.set_index('Description', inplace=True)
-    # Use Pandas to convert the data to a HTML table string
-#    mars_facts = mars_facts.to_html()
-
-## ---------Mars Facts - V3
-    # Use Pandas to scrape the table containing facts about the planet including Diameter, Mass, etc.
-  #  url = "http://space-facts.com/mars/"
-
-    # Scrape all the tables into a pandas dataframe, take the first table and change the column names
- #   mars_facts = pd.read_html(url)[0]
- #   mars_facts.columns = ["Description", "Data"]
-
-    # Remove the index column
- #   mars_facts.set_index("Description", inplace = True)
-
-    # Convert to HTML
- #   mars_facts_html = mars_facts.to_html(classes="table table-striped")
-
-## ---------Mars Facts - V4
     url = "http://space-facts.com/mars/"
     tables = pd.read_html(url)
     mars_facts_df = tables[2]
@@ -152,7 +116,6 @@ def scrape_all():
     # Return results
     return mars_data
 
-    # Potato - do I need the code below?
 if __name__ == "__main__":
         scrape_all()
 
